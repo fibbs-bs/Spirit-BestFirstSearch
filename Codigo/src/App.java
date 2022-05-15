@@ -9,6 +9,13 @@ public class App {
     }
 
     private static void lectura() {
+        /**
+         * Las conexiones no se pueden generar en la lectura ya que se lee desde fila 0 a fila n-1.
+         * Esto genera que se pueda generar una conexión desde fila i a fila i-1 pero no de fila i-1 a i
+         * ya que ya fue consultada por la lectura y rellenado de matriz. Es por esto que se rellenará
+         * en otro método.
+         * Las conexiones que si o si se generarán son las que poseen obstáculos.
+         */
         try {
             Scanner scan = new Scanner(new File("Codigo/entradas/01.txt"));
             String[] medidas = scan.nextLine().split(",");
@@ -36,6 +43,14 @@ public class App {
                         superficie[fila][columna] = t;
                     }
                 }
+            }
+            while(scan.hasNextLine()){
+                String linea = scan.nextLine();
+                String coordenadasTerrenoA = linea.split(",")[1].replace("(","").replace(")","");
+                String coordenadasTerrenoB = linea.split(",")[2].replace("(","").replace(")","");
+                int[] aCoords = new int [] {Integer.parseInt(coordenadasTerrenoA.split(",")[0]),Integer.parseInt(coordenadasTerrenoA.split(",")[1])};
+                int[] bCoords = new int [] {Integer.parseInt(coordenadasTerrenoB.split(",")[0]),Integer.parseInt(coordenadasTerrenoB.split(",")[1])};
+                String[] orientaciones = Conexion.getOrientacion(aCoords,bCoords);
             } 
             
         } catch (Exception e) {
