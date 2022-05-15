@@ -1,14 +1,16 @@
 package src;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args){
-        lectura();
+        Terrenos terrenos = new Terrenos();
+        lectura(terrenos);
     }
 
-    private static void lectura() {
+    private static void lectura(Terrenos terrenos) {
         /**
          * Las conexiones no se pueden generar en la lectura ya que se lee desde fila 0 a fila n-1.
          * Esto genera que se pueda generar una conexión desde fila i a fila i-1 pero no de fila i-1 a i
@@ -42,6 +44,7 @@ public class App {
                     } catch (Exception e) {
                         superficie[fila][columna] = t;
                     }
+                    terrenos.add(t);
                 }
             }
             while(scan.hasNextLine()){
@@ -50,7 +53,11 @@ public class App {
                 String coordenadasTerrenoB = linea.split(",")[2].replace("(","").replace(")","");
                 int[] aCoords = new int [] {Integer.parseInt(coordenadasTerrenoA.split(",")[0]),Integer.parseInt(coordenadasTerrenoA.split(",")[1])};
                 int[] bCoords = new int [] {Integer.parseInt(coordenadasTerrenoB.split(",")[0]),Integer.parseInt(coordenadasTerrenoB.split(",")[1])};
+                Terreno a = terrenos.find(aCoords);
+                Terreno b = terrenos.find(bCoords);
                 String[] orientaciones = Conexion.getOrientacion(aCoords,bCoords);
+                a.getConexiones().add(new Conexion(a, b, orientaciones[0]));
+                b.getConexiones().add(new Conexion(b, a, orientaciones[1]));
             } 
             
         } catch (Exception e) {

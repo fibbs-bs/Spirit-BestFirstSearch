@@ -33,6 +33,10 @@ public class Conexion {
     }
 
     public static String[] getOrientacion(int[] aCoords, int[] bCoords) {
+        /**
+         * Se asume y se concluye que los terrenos son movimientos no diagonales.
+         * Solo horizontal y vertical.
+         */
         String [] retorno = new String[2];
         if (aCoords[0] == bCoords[0]){ //misma fila, por lo tanto puede ser Este u Oeste
             if (aCoords[1] < bCoords[1]){
@@ -46,14 +50,14 @@ public class Conexion {
         }
         else{ //misma columna
             if (aCoords[0] < bCoords[0]){
-                retorno[0] = "N";//orientación de conexión desde A
-                retorno[1] = "S";//orientación de conexión desde B
+                retorno[0] = "S";//orientación de conexión desde A
+                retorno[1] = "N";//orientación de conexión desde B
             }
             else{
                 retorno[0] = "N";//orientación de conexión desde A
                 retorno[1] = "S";//orientación de conexión desde B
             }
         }
-        return null;
+        return retorno;
     }
 }

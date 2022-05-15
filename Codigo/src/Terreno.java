@@ -12,7 +12,7 @@ public class Terreno{
         this.fila = fila;
         this.columna = columna;
         this.objetivo = false;
-        conexiones = new ArrayList<Conexion>();
+        conexiones = new ArrayList<>();
     }
 
     public int getFila() {
