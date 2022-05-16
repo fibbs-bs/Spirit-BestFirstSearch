@@ -11,6 +11,12 @@ public class Conexion {
         this.orientacion = orientacion;
         this.obstaculo = false;
     }
+    public Conexion(Terreno actual,Terreno siguiente, String orientacion,boolean obstaculo){
+        this.actual = actual;
+        this.siguiente = siguiente;
+        this.orientacion = orientacion;
+        this.obstaculo = obstaculo;
+    }
 
     public void setObstaculo(boolean obstaculo){
         this.obstaculo = obstaculo;

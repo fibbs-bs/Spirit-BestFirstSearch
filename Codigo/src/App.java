@@ -55,8 +55,8 @@ public class App {
                 Terreno a = terrenos.find(aCoords);
                 Terreno b = terrenos.find(bCoords);
                 String[] orientaciones = Conexion.getOrientacion(aCoords,bCoords);
-                a.getConexiones().add(new Conexion(a, b, orientaciones[0]));
-                b.getConexiones().add(new Conexion(b, a, orientaciones[1]));
+                a.getConexiones().add(new Conexion(a, b, orientaciones[0],true));
+                b.getConexiones().add(new Conexion(b, a, orientaciones[1],true));
             } 
             
         } catch (Exception e) {
