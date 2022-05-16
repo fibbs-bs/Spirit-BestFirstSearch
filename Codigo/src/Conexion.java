@@ -1,5 +1,6 @@
 package src;
 public class Conexion {
+
     private Terreno actual;
     private Terreno siguiente;
     private String orientacion;

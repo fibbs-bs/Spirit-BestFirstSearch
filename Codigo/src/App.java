@@ -28,6 +28,7 @@ public class App {
                 for (int j = 0; j < columnas; j++) {
                     String[] linea = scan.nextLine().split(",");
                     int columna = Integer.parseInt(linea[0]);
+                    //System.out.println("Fila: "+fila+" | Columna: "+columna);
                     String tipo = linea[1];
                     Terreno t;
                     if (tipo.equals("L")){
@@ -60,7 +61,7 @@ public class App {
             } 
             
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
         }
         
 
