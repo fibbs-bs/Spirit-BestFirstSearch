@@ -39,4 +39,31 @@ public class Terreno{
     public Terrenos getObstaculos(){
         return obstaculos;
     }
+    /**
+     * @return retorna la orientación del otro objeto con respecto de este
+     */
+    public String[] getOrientacionRelativa(Terreno b){
+        String [] retorno = new String[2];
+        if (this.fila == b.getFila()){ //misma fila, por lo tanto puede ser Este u Oeste
+            if (this.columna < b.getColumna()){
+                retorno[0] = "E";//orientación de conexión desde A
+                retorno[1] = "O";//orientación de conexión desde B
+            }
+            else{
+                retorno[0] = "O";//orientación de conexión desde A
+                retorno[1] = "E";//orientación de conexión desde B
+            }
+        }
+        else{ //misma columna
+            if (this.fila < b.getFila()){
+                retorno[0] = "S";//orientación de conexión desde A
+                retorno[1] = "N";//orientación de conexión desde B
+            }
+            else{
+                retorno[0] = "N";//orientación de conexión desde A
+                retorno[1] = "S";//orientación de conexión desde B
+            }
+        }
+        return retorno;
+    }
 }

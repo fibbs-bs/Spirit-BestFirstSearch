@@ -20,7 +20,9 @@ public class Terrenos {
     }
     
     public void add(Terreno t){
-        terrenos.add(t);
+        if (!this.exists(t.getFila(), t.getColumna())){
+            terrenos.add(t);
+        }
     }
 
     public int getN(){

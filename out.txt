@@ -1,0 +1,260 @@
+Abrupto (0,0)
+	Terrenos adyacentes:
+		E: Llano (0,1) Movimiento numero: 1 Obstaculo: true
+		S: Llano (1,0) Movimiento numero: 2 Obstaculo: false
+Llano (0,1)
+	Terrenos adyacentes:
+		E: Llano (0,2) Movimiento numero: 1 Obstaculo: false
+		S: Llano (1,1) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (0,0) Movimiento numero: 3 Obstaculo: true
+Llano (0,2)
+	Terrenos adyacentes:
+		E: Abrupto (0,3) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (1,2) Movimiento numero: 2 Obstaculo: false
+		O: Llano (0,1) Movimiento numero: 3 Obstaculo: false
+Abrupto (0,3)
+	Terrenos adyacentes:
+		E: Abrupto (0,4) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (1,3) Movimiento numero: 2 Obstaculo: true
+		O: Llano (0,2) Movimiento numero: 3 Obstaculo: false
+Abrupto (0,4)
+	Terrenos adyacentes:
+		E: Abrupto (0,5) Movimiento numero: 1 Obstaculo: true
+		S: Llano (1,4) Movimiento numero: 2 Obstaculo: true
+		O: Abrupto (0,3) Movimiento numero: 3 Obstaculo: false
+Abrupto (0,5)
+	Terrenos adyacentes:
+		E: Llano (0,6) Movimiento numero: 1 Obstaculo: false
+		S: Llano (1,5) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (0,4) Movimiento numero: 3 Obstaculo: true
+Llano (0,6)
+	Terrenos adyacentes:
+		E: Llano (0,7) Movimiento numero: 1 Obstaculo: false
+		S: Llano (1,6) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (0,5) Movimiento numero: 3 Obstaculo: false
+Llano (0,7)
+	Terrenos adyacentes:
+		S: Llano (1,7) Movimiento numero: 2 Obstaculo: false
+		O: Llano (0,6) Movimiento numero: 3 Obstaculo: false
+Llano (1,0)
+	Terrenos adyacentes:
+		E: Llano (1,1) Movimiento numero: 1 Obstaculo: false
+		S: Llano (2,0) Movimiento numero: 2 Obstaculo: false
+		N: Abrupto (0,0) Movimiento numero: 4 Obstaculo: false
+Llano (1,1)
+	Terrenos adyacentes:
+		E: Abrupto (1,2) Movimiento numero: 1 Obstaculo: false
+		S: Llano (2,1) Movimiento numero: 2 Obstaculo: false
+		O: Llano (1,0) Movimiento numero: 3 Obstaculo: true
+		N: Llano (0,1) Movimiento numero: 4 Obstaculo: false
+Abrupto (1,2)
+	Terrenos adyacentes:
+		E: Abrupto (1,3) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (2,2) Movimiento numero: 2 Obstaculo: false
+		O: Llano (1,1) Movimiento numero: 3 Obstaculo: false
+		N: Llano (0,2) Movimiento numero: 4 Obstaculo: false
+Abrupto (1,3)
+	Terrenos adyacentes:
+		E: Llano (1,4) Movimiento numero: 1 Obstaculo: false
+		S: Llano (2,3) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (1,2) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (0,3) Movimiento numero: 4 Obstaculo: true
+Llano (1,4)
+	Terrenos adyacentes:
+		E: Llano (1,5) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (2,4) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (1,3) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (0,4) Movimiento numero: 4 Obstaculo: true
+Llano (1,5)
+	Terrenos adyacentes:
+		E: Llano (1,6) Movimiento numero: 1 Obstaculo: false
+		S: Llano (2,5) Movimiento numero: 2 Obstaculo: false
+		O: Llano (1,4) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (0,5) Movimiento numero: 4 Obstaculo: true
+Llano (1,6)
+	Terrenos adyacentes:
+		E: Llano (1,7) Movimiento numero: 1 Obstaculo: false
+		S: Llano (2,6) Movimiento numero: 2 Obstaculo: false
+		O: Llano (1,5) Movimiento numero: 3 Obstaculo: false
+		N: Llano (0,6) Movimiento numero: 4 Obstaculo: false
+Llano (1,7)
+	Terrenos adyacentes:
+		S: Abrupto (2,7) Movimiento numero: 2 Obstaculo: false
+		O: Llano (1,6) Movimiento numero: 3 Obstaculo: false
+		N: Llano (0,7) Movimiento numero: 4 Obstaculo: false
+Llano (2,0)
+	Terrenos adyacentes:
+		E: Llano (2,1) Movimiento numero: 1 Obstaculo: false
+		S: Llano (3,0) Movimiento numero: 2 Obstaculo: true
+		N: Llano (1,0) Movimiento numero: 4 Obstaculo: false
+Llano (2,1)
+	Terrenos adyacentes:
+		E: Abrupto (2,2) Movimiento numero: 1 Obstaculo: false
+		S: Llano (3,1) Movimiento numero: 2 Obstaculo: false
+		O: Llano (2,0) Movimiento numero: 3 Obstaculo: false
+		N: Llano (1,1) Movimiento numero: 4 Obstaculo: false
+Abrupto (2,2)
+	Terrenos adyacentes:
+		E: Llano (2,3) Movimiento numero: 1 Obstaculo: false
+		S: Llano (3,2) Movimiento numero: 2 Obstaculo: false
+		O: Llano (2,1) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (1,2) Movimiento numero: 4 Obstaculo: true
+Llano (2,3)
+	Terrenos adyacentes:
+		E: Abrupto (2,4) Movimiento numero: 1 Obstaculo: true
+		S: Abrupto (3,3) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (2,2) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (1,3) Movimiento numero: 4 Obstaculo: false
+Abrupto (2,4)
+	Terrenos adyacentes:
+		E: Llano (2,5) Movimiento numero: 1 Obstaculo: false
+		S: Llano (3,4) Movimiento numero: 2 Obstaculo: true
+		O: Llano (2,3) Movimiento numero: 3 Obstaculo: true
+		N: Llano (1,4) Movimiento numero: 4 Obstaculo: true
+Llano (2,5)
+	Terrenos adyacentes:
+		E: Llano (2,6) Movimiento numero: 1 Obstaculo: false
+		S: Llano (3,5) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (2,4) Movimiento numero: 3 Obstaculo: false
+		N: Llano (1,5) Movimiento numero: 4 Obstaculo: true
+Llano (2,6)
+	Terrenos adyacentes:
+		E: Abrupto (2,7) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (3,6) Movimiento numero: 2 Obstaculo: false
+		O: Llano (2,5) Movimiento numero: 3 Obstaculo: false
+		N: Llano (1,6) Movimiento numero: 4 Obstaculo: false
+Abrupto (2,7)
+	Terrenos adyacentes:
+		S: Llano (3,7) Movimiento numero: 2 Obstaculo: true
+		O: Llano (2,6) Movimiento numero: 3 Obstaculo: false
+		N: Llano (1,7) Movimiento numero: 4 Obstaculo: false
+Llano (3,0)
+	Terrenos adyacentes:
+		E: Llano (3,1) Movimiento numero: 1 Obstaculo: false
+		S: Llano (4,0) Movimiento numero: 2 Obstaculo: false
+		N: Llano (2,0) Movimiento numero: 4 Obstaculo: true
+Llano (3,1)
+	Terrenos adyacentes:
+		E: Llano (3,2) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (4,1) Movimiento numero: 2 Obstaculo: false
+		O: Llano (3,0) Movimiento numero: 3 Obstaculo: false
+		N: Llano (2,1) Movimiento numero: 4 Obstaculo: false
+Llano (3,2)
+	Terrenos adyacentes:
+		E: Abrupto (3,3) Movimiento numero: 1 Obstaculo: false
+		S: Llano (4,2) Movimiento numero: 2 Obstaculo: false
+		O: Llano (3,1) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (2,2) Movimiento numero: 4 Obstaculo: false
+Abrupto (3,3)
+	Terrenos adyacentes:
+		E: Llano (3,4) Movimiento numero: 1 Obstaculo: false
+		S: Llano (4,3) Movimiento numero: 2 Obstaculo: false
+		O: Llano (3,2) Movimiento numero: 3 Obstaculo: false
+		N: Llano (2,3) Movimiento numero: 4 Obstaculo: false
+Llano (3,4)
+	Terrenos adyacentes:
+		E: Llano (3,5) Movimiento numero: 1 Obstaculo: true
+		S: Llano (4,4) Movimiento numero: 2 Obstaculo: true
+		O: Abrupto (3,3) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (2,4) Movimiento numero: 4 Obstaculo: true
+Llano (3,5)
+	Terrenos adyacentes:
+		E: Abrupto (3,6) Movimiento numero: 1 Obstaculo: false
+		S: Llano (4,5) Movimiento numero: 2 Obstaculo: true
+		O: Llano (3,4) Movimiento numero: 3 Obstaculo: true
+		N: Llano (2,5) Movimiento numero: 4 Obstaculo: false
+Abrupto (3,6)
+	Terrenos adyacentes:
+		E: Llano (3,7) Movimiento numero: 1 Obstaculo: false
+		S: Llano (4,6) Movimiento numero: 2 Obstaculo: false
+		O: Llano (3,5) Movimiento numero: 3 Obstaculo: false
+		N: Llano (2,6) Movimiento numero: 4 Obstaculo: false
+Llano (3,7)
+	Terrenos adyacentes:
+		S: Abrupto (4,7) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (3,6) Movimiento numero: 3 Obstaculo: false
+		N: Abrupto (2,7) Movimiento numero: 4 Obstaculo: true
+Llano (4,0)
+	Terrenos adyacentes:
+		E: Abrupto (4,1) Movimiento numero: 1 Obstaculo: true
+		S: Abrupto (5,0) Movimiento numero: 2 Obstaculo: true
+		N: Llano (3,0) Movimiento numero: 4 Obstaculo: false
+Abrupto (4,1)
+	Terrenos adyacentes:
+		E: Llano (4,2) Movimiento numero: 1 Obstaculo: true
+		S: Llano (5,1) Movimiento numero: 2 Obstaculo: true
+		O: Llano (4,0) Movimiento numero: 3 Obstaculo: true
+		N: Llano (3,1) Movimiento numero: 4 Obstaculo: false
+Llano (4,2)
+	Terrenos adyacentes:
+		E: Llano (4,3) Movimiento numero: 1 Obstaculo: true
+		S: Llano (5,2) Movimiento numero: 2 Obstaculo: false
+		O: Abrupto (4,1) Movimiento numero: 3 Obstaculo: true
+		N: Llano (3,2) Movimiento numero: 4 Obstaculo: false
+Llano (4,3)
+	Terrenos adyacentes:
+		E: Llano (4,4) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (5,3) Movimiento numero: 2 Obstaculo: false
+		O: Llano (4,2) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (3,3) Movimiento numero: 4 Obstaculo: false
+Llano (4,4)
+	Terrenos adyacentes:
+		E: Llano (4,5) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (5,4) Movimiento numero: 2 Obstaculo: false
+		O: Llano (4,3) Movimiento numero: 3 Obstaculo: false
+		N: Llano (3,4) Movimiento numero: 4 Obstaculo: true
+Llano (4,5)
+	Terrenos adyacentes:
+		E: Llano (4,6) Movimiento numero: 1 Obstaculo: false
+		S: Abrupto (5,5) Movimiento numero: 2 Obstaculo: false
+		O: Llano (4,4) Movimiento numero: 3 Obstaculo: false
+		N: Llano (3,5) Movimiento numero: 4 Obstaculo: true
+Llano (4,6)
+	Terrenos adyacentes:
+		E: Abrupto (4,7) Movimiento numero: 1 Obstaculo: false
+		S: Llano (5,6) Movimiento numero: 2 Obstaculo: false
+		O: Llano (4,5) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (3,6) Movimiento numero: 4 Obstaculo: false
+Abrupto (4,7)
+	Terrenos adyacentes:
+		S: Llano (5,7) Movimiento numero: 2 Obstaculo: false
+		O: Llano (4,6) Movimiento numero: 3 Obstaculo: false
+		N: Llano (3,7) Movimiento numero: 4 Obstaculo: false
+Abrupto (5,0)
+	Terrenos adyacentes:
+		E: Llano (5,1) Movimiento numero: 1 Obstaculo: true
+		N: Llano (4,0) Movimiento numero: 4 Obstaculo: true
+Llano (5,1)
+	Terrenos adyacentes:
+		E: Llano (5,2) Movimiento numero: 1 Obstaculo: false
+		O: Abrupto (5,0) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (4,1) Movimiento numero: 4 Obstaculo: true
+Llano (5,2)
+	Terrenos adyacentes:
+		E: Abrupto (5,3) Movimiento numero: 1 Obstaculo: false
+		O: Llano (5,1) Movimiento numero: 3 Obstaculo: false
+		N: Llano (4,2) Movimiento numero: 4 Obstaculo: true
+Abrupto (5,3)
+	Terrenos adyacentes:
+		E: Abrupto (5,4) Movimiento numero: 1 Obstaculo: false
+		O: Llano (5,2) Movimiento numero: 3 Obstaculo: false
+		N: Llano (4,3) Movimiento numero: 4 Obstaculo: false
+Abrupto (5,4)
+	Terrenos adyacentes:
+		E: Abrupto (5,5) Movimiento numero: 1 Obstaculo: true
+		O: Abrupto (5,3) Movimiento numero: 3 Obstaculo: false
+		N: Llano (4,4) Movimiento numero: 4 Obstaculo: false
+Abrupto (5,5)
+	Terrenos adyacentes:
+		E: Llano (5,6) Movimiento numero: 1 Obstaculo: false
+		O: Abrupto (5,4) Movimiento numero: 3 Obstaculo: true
+		N: Llano (4,5) Movimiento numero: 4 Obstaculo: true
+Llano (5,6)
+	Terrenos adyacentes:
+		E: Llano (5,7) Movimiento numero: 1 Obstaculo: false
+		O: Abrupto (5,5) Movimiento numero: 3 Obstaculo: false
+		N: Llano (4,6) Movimiento numero: 4 Obstaculo: false
+Llano (5,7)
+	Terrenos adyacentes:
+		O: Llano (5,6) Movimiento numero: 3 Obstaculo: true
+		N: Abrupto (4,7) Movimiento numero: 4 Obstaculo: false
