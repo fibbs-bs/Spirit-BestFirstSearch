@@ -1,5 +1,8 @@
 package src;
+
 import javax.swing.JButton;
+import javax.swing.border.MatteBorder;
+
 import java.awt.*;
 
 public class TerrenoAbrupto extends Terreno{
@@ -8,16 +11,15 @@ public class TerrenoAbrupto extends Terreno{
 
     public TerrenoAbrupto(int fila, int columna) {
         super(fila, columna);
+        this.grafico = new JButton(""){{
+            setBackground(new Color(185,57,52));
+            setBorder(new MatteBorder(0,0,0,0,Color.WHITE));
+        }};
     }
     
     public double getTiempo() {
         return 0.5/velocidad;
     }
 
-    @Override
-    public void pintar() {
-        this.grafico = new JButton(""){{
-            setBackground(new Color(185,57,52));
-        }};
-    }
+
 }

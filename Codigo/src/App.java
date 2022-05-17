@@ -25,7 +25,7 @@ public class App {
         //
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600,600);
-        frame.setLayout(new GridLayout(n,m));
+        frame.setLayout(new GridLayout(n,m,1,1));
         //
         Terrenos superficie = new Terrenos(n,m);
         int[] movimientoI = new int[]{0,1,0,-1};
@@ -51,7 +51,6 @@ public class App {
                     //Si el terreno de coordenadas i,j ya existe, solo se obtiene desde la superficie.
                     terrenoIJ = superficie.find(i, j);
                 }
-                terrenoIJ.pintar();
                 frame.add(terrenoIJ.getGrafico());
                 if (terrenoIJ instanceof TerrenoAbrupto){
                     escritura.println("Abrupto ("+i+","+j+")");
@@ -86,9 +85,11 @@ public class App {
                             if (Math.random()<=0.3){
                                 if(!terrenoIJ.getObstaculos().exists(coordIHijo, coordJHijo)){
                                     terrenoIJ.getObstaculos().add(terrenoHijo);
+                                    //Código de bordes
+                                    terrenoIJ.pintarObstaculo();
                                 }
                                 terrenoHijo.getObstaculos().add(terrenoIJ);
-                                
+                                terrenoHijo.pintarObstaculo();
                             }
                             superficie.add(terrenoHijo);
                         }

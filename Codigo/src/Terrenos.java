@@ -19,6 +19,10 @@ public class Terrenos {
         //Lógica de creación random de terrenos abruptos y llanos con obstáculos y esas cosas.
     }
     
+    public ArrayList<Terreno> getTerrenos(){
+        return terrenos;
+    }
+
     public void add(Terreno t){
         if (!this.exists(t.getFila(), t.getColumna())){
             terrenos.add(t);

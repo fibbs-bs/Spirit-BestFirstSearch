@@ -1,6 +1,8 @@
 package src;
 
 import javax.swing.JButton;
+import java.awt.*;
+import javax.swing.border.MatteBorder;
 
 public abstract class Terreno{
 
@@ -8,7 +10,7 @@ public abstract class Terreno{
     private int columna;
     private boolean objetivo;
     private Terrenos terrenos;
-    private Terrenos obstaculos;
+    protected Terrenos obstaculos;
     protected JButton grafico;
 
     public Terreno(int fila, int columna){
@@ -22,8 +24,6 @@ public abstract class Terreno{
     public JButton getGrafico(){
         return grafico;
     }
-
-    public abstract void pintar();
 
     public int getFila() {
         return fila;
@@ -75,4 +75,31 @@ public abstract class Terreno{
         }
         return retorno;
     }
+
+    public void pintarObstaculo() {
+        //MatteBorder(int top, int left, int bottom, int right, Color matteColor)
+        int [] bordes = new int[4];
+        for (Terreno t : this.obstaculos.getTerrenos()) {
+            String orientacion = this.getOrientacionRelativa(t)[0];    
+            if (orientacion.equals("N")){
+                bordes[0]=2;
+            }
+            else{
+                if (orientacion.equals("S")){
+                    bordes[2]=2;
+                }
+                else{
+                    if (orientacion.equals("E")){
+                        bordes[3]=2;
+                    }
+                    else{
+                        bordes[1]=2;
+                    }
+                }
+            }
+        }
+        this.grafico.setBorder(new MatteBorder(bordes[0],bordes[1],bordes[2],bordes[3],Color.BLACK));
+    }
+
+    public abstract double getTiempo();
 }
