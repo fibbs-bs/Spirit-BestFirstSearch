@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws IOException{
+        int count = 0;
         FileWriter file = new FileWriter("out.txt");
         PrintWriter escritura = new PrintWriter(file);
         Scanner scan = new Scanner(System.in);
@@ -69,17 +70,24 @@ public class App {
                             else{
                                 terrenoHijo = new TerrenoAbrupto(coordIHijo, coordJHijo);
                             }
+                            if (Math.random()<=0.3){
+                                //
+                                count++;
+                                if(!terrenoIJ.getObstaculos().exists(coordIHijo, coordJHijo)){
+                                    terrenoIJ.getObstaculos().add(terrenoHijo);
+                                }
+                                terrenoHijo.getObstaculos().add(terrenoIJ);
+                                
+                            }
                             superficie.add(terrenoHijo);
                         }
                         else{
                             terrenoHijo = superficie.find(coordIHijo, coordJHijo);
                         }
                         
-                        if (Math.random()<=0.18){
-                            terrenoHijo.getObstaculos().add(terrenoIJ);
-                            terrenoIJ.getObstaculos().add(terrenoHijo);
-                        }
+                        
                         terrenoIJ.getTerrenos().add(terrenoHijo);
+                        
                         if (terrenoHijo instanceof TerrenoAbrupto){
                             escritura.println("\t\t"+terrenoIJ.getOrientacionRelativa(terrenoHijo)[0]+": Abrupto ("+coordIHijo+","+coordJHijo+")" + " Movimiento numero: " + (k+1) + " Obstaculo: " + (terrenoIJ.getObstaculos().exists(coordIHijo, coordJHijo)));
                         }
@@ -98,7 +106,6 @@ public class App {
 
         
         file.close();
-        
     }
     
 }
