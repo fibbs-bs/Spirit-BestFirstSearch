@@ -1,18 +1,19 @@
 package src;
-import java.util.ArrayList;
 
 public class Terreno{
 
     private int fila;
     private int columna;
     private boolean objetivo;
-    private ArrayList<Conexion> conexiones;
+    private Terrenos terrenos;
+    private Terrenos obstaculos;
 
     public Terreno(int fila, int columna){
         this.fila = fila;
         this.columna = columna;
         this.objetivo = false;
-        conexiones = new ArrayList<>();
+        terrenos = new Terrenos();
+        obstaculos = new Terrenos();
     }
 
     public int getFila() {
@@ -31,7 +32,11 @@ public class Terreno{
         this.objetivo = true;
     }
 
-    public ArrayList<Conexion> getConexiones() {
-        return conexiones;
+    public Terrenos getTerrenos() {
+        return terrenos;
+    }
+
+    public Terrenos getObstaculos(){
+        return obstaculos;
     }
 }

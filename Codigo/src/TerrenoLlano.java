@@ -7,8 +7,8 @@ public class TerrenoLlano extends Terreno{
         super(fila, columna);
     }
 
-    public double getVelocidad() {
-        return velocidad;
+    public double getTiempo() {
+        return 0.5/velocidad;
     }
 
 }
