@@ -1,12 +1,15 @@
 package src;
 
-public class Terreno{
+import javax.swing.JButton;
+
+public abstract class Terreno{
 
     private int fila;
     private int columna;
     private boolean objetivo;
     private Terrenos terrenos;
     private Terrenos obstaculos;
+    protected JButton grafico;
 
     public Terreno(int fila, int columna){
         this.fila = fila;
@@ -15,6 +18,12 @@ public class Terreno{
         terrenos = new Terrenos();
         obstaculos = new Terrenos();
     }
+
+    public JButton getGrafico(){
+        return grafico;
+    }
+
+    public abstract void pintar();
 
     public int getFila() {
         return fila;

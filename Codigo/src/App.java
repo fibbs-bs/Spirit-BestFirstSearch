@@ -1,13 +1,18 @@
 package src;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.awt.image.BufferedImage;
+import java.awt.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws IOException{
-        int count = 0;
         FileWriter file = new FileWriter("out.txt");
         PrintWriter escritura = new PrintWriter(file);
         Scanner scan = new Scanner(System.in);
@@ -16,6 +21,12 @@ public class App {
         System.out.print("Ingrese dimensión m: ");
         int m = Integer.parseInt(scan.nextLine());
         System.out.println("Dimensión N:"+n+", Dimensión M:"+m);
+        JFrame frame = new JFrame();
+        //
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600,600);
+        frame.setLayout(new GridLayout(n,m));
+        //
         Terrenos superficie = new Terrenos(n,m);
         int[] movimientoI = new int[]{0,1,0,-1};
         int[] movimientoJ = new int[]{1,0,-1,0};
@@ -40,6 +51,8 @@ public class App {
                     //Si el terreno de coordenadas i,j ya existe, solo se obtiene desde la superficie.
                     terrenoIJ = superficie.find(i, j);
                 }
+                terrenoIJ.pintar();
+                frame.add(terrenoIJ.getGrafico());
                 if (terrenoIJ instanceof TerrenoAbrupto){
                     escritura.println("Abrupto ("+i+","+j+")");
                 }
@@ -71,8 +84,6 @@ public class App {
                                 terrenoHijo = new TerrenoAbrupto(coordIHijo, coordJHijo);
                             }
                             if (Math.random()<=0.3){
-                                //
-                                count++;
                                 if(!terrenoIJ.getObstaculos().exists(coordIHijo, coordJHijo)){
                                     terrenoIJ.getObstaculos().add(terrenoHijo);
                                 }
@@ -101,11 +112,33 @@ public class App {
                 }
 
             }
+            frame.setVisible(true);
         }
 
 
         
         file.close();
+        takePicture(frame);
+    }
+
+
+    public static void takePicture(JFrame panel){                                        
+        /**
+         * this gist outline the process to grab the screenshot of a particular
+         * JFrame in Swing from which the method is invoked
+         * 
+         * "this" is the particualr frame here
+         * */
+        BufferedImage screenshotImage = new BufferedImage(
+                panel.getBounds().width, panel.getBounds().height,
+                BufferedImage.TYPE_INT_RGB);
+                panel.paint(screenshotImage.getGraphics()
+        );
+        try {
+            ImageIO.write(screenshotImage, "png", new File("screenShot.png" ));
+        } catch (IOException ex) {
+            System.err.println("ImageIsuues");
+        }
     }
     
 }
