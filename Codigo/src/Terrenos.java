@@ -116,11 +116,37 @@ public class Terrenos {
         frame.setVisible(true);
     }
 
+    public Terreno getTerrenoInicio(){
+        for (Terreno t : this.terrenos) {
+            if (t.getInicio()){
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public boolean isEmpty(){
+        return this.terrenos.isEmpty();
+    }
+
+    public Terreno pop(Terreno actual){
+        Terreno terrenoMenor = actual;
+        for (Terreno terreno : this.terrenos) {
+            if(terrenoMenor == null){
+                terrenoMenor = terreno;
+            }else{
+               
+            }
+        }
+        this.terrenos.remove(actual);
+        return terrenoMenor;
+    }
+
     public String toString(){
         String text = "";
         for (Terreno t : this.terrenos) {
             text+=t.getInfo()+"\n\tTerrenos adyacentes:\n";
-            for (Terreno adyacente: t.getTerrenos().getTerrenos()) {
+            for (Terreno adyacente: t.getTerrenos().getTerrenosArray()) {
                 boolean obstaculo = t.getObstaculos().exists(adyacente);
                 if (obstaculo){
                     text+="\t"+t.getOrientacionRelativa(adyacente)[0]+": [Obstaculo] "+adyacente.getInfo()+"\n";
@@ -133,7 +159,7 @@ public class Terrenos {
         return text;
     }
     
-    public ArrayList<Terreno> getTerrenos(){
+    public ArrayList<Terreno> getTerrenosArray(){
         return terrenos;
     }
 

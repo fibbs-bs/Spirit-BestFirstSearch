@@ -101,7 +101,7 @@ public abstract class Terreno{
     public void pintarObstaculo() {
         //MatteBorder(int top, int left, int bottom, int right, Color matteColor)
         int [] bordes = new int[4];
-        for (Terreno t : this.obstaculos.getTerrenos()) {
+        for (Terreno t : this.obstaculos.getTerrenosArray()) {
             String orientacion = this.getOrientacionRelativa(t)[0];    
             if (orientacion.equals("N")){
                 bordes[0]=2;

@@ -24,7 +24,6 @@ public class App {
         Terrenos superficie = new Terrenos(n,m);
         crearArchivo(superficie);
         tomarCaptura(superficie);
-
     }
 
 
@@ -59,7 +58,26 @@ public class App {
         file.close();
     }
 
+    public static void best_first_search(Terrenos superficie){
+        Spirit spirit = new Spirit(superficie.getTerrenoInicio());
+        Terrenos open = spirit.getOpen();
+        Terrenos closed = spirit.getClosed();
+        Terreno nodoN = superficie.getTerrenoInicio();
+        //Step 1
+        open.add(nodoN);
+        while (!open.isEmpty()){ //Step 2
+            //Step 3
+            nodoN = open.pop(); 
+            closed.add(nodoN);
+            //
+            //Step 4
+            for (Terreno hijo : nodoN.getTerrenos().getTerrenosArray()) {
 
+                open.add(hijo);
+            }
+            //
+        }
+    }
 
 
 
