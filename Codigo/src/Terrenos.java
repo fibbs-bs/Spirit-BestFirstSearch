@@ -104,8 +104,8 @@ public class Terrenos {
          */
         int filaObjetivo = (int)(n/2) + (int)(Math.random() * ((n - (int)(n/2))));
         int columnaObjetivo = (int)(m/2) + (int)(Math.random() * ((m - (int)(m/2))));
-        System.out.println(filaObjetivo+","+columnaObjetivo);
         this.find(filaObjetivo, columnaObjetivo).setObjetivo();
+        //
         frame.setVisible(true);
     }
 

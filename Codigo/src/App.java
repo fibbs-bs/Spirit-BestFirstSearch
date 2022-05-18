@@ -21,7 +21,6 @@ public class App {
         int n = Integer.parseInt(scan.nextLine());
         System.out.print("Ingrese dimensión m: ");
         int m = Integer.parseInt(scan.nextLine());
-        System.out.println("Dimensión N:"+n+", Dimensión M:"+m);
         Terrenos superficie = new Terrenos(n,m);
         takePicture(superficie.getFrame());
     }
@@ -42,7 +41,7 @@ public class App {
         try {
             DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HHmm");
             String nowFormat = dtf2.format(LocalDateTime.now());
-            ImageIO.write(screenshotImage, "png", new File("Codigo/salidas/"+nowFormat+".png" ));
+            ImageIO.write(screenshotImage, "png", new File("Codigo/salidas/Imagenes/"+nowFormat+".png" ));
         } catch (IOException ex) {
             System.err.println("ImageIssues");
         }
