@@ -22,11 +22,13 @@ public class App {
         System.out.print("Ingrese dimensión m: ");
         int m = Integer.parseInt(scan.nextLine());
         Terrenos superficie = new Terrenos(n,m);
-        takePicture(superficie.getFrame());
+        crearArchivo(superficie);
+        tomarCaptura(superficie);
     }
 
 
-    public static void takePicture(JFrame panel){                                        
+    public static void tomarCaptura(Terrenos terreno){                                        
+        JFrame panel = terreno.getFrame();
         /**
          * this gist outline the process to grab the screenshot of a particular
          * JFrame in Swing from which the method is invoked
@@ -41,10 +43,18 @@ public class App {
         try {
             DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HHmm");
             String nowFormat = dtf2.format(LocalDateTime.now());
-            ImageIO.write(screenshotImage, "png", new File("Codigo/salidas/Imagenes/"+nowFormat+".png" ));
+            ImageIO.write(screenshotImage, "png", new File("Codigo/salidas/Imagenes/"+terreno.getN()+"x"+terreno.getM()+"_"+nowFormat+".png" ));
         } catch (IOException ex) {
             System.err.println("ImageIssues");
         }
     }
-    
+
+    public static void crearArchivo(Terrenos terreno) throws IOException{
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HHmm");
+        String nowFormat = dtf2.format(LocalDateTime.now());
+        FileWriter file = new FileWriter("Codigo/salidas/Texto/"+terreno.getN()+"x"+terreno.getM()+"_"+nowFormat+".txt");
+        PrintWriter escritura = new PrintWriter(file);
+        escritura.println(terreno.toString());
+        file.close();
+    }
 }

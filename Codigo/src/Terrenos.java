@@ -109,6 +109,22 @@ public class Terrenos {
         frame.setVisible(true);
     }
 
+    public String toString(){
+        String text = "";
+        for (Terreno t : this.terrenos) {
+            text+=t.getInfo()+"\n\tTerrenos adyacentes:\n";
+            for (Terreno adyacente: t.getTerrenos().getTerrenos()) {
+                boolean obstaculo = t.getObstaculos().exists(adyacente);
+                if (obstaculo){
+                    text+="\t"+t.getOrientacionRelativa(adyacente)[0]+": [Obstaculo] "+adyacente.getInfo()+"\n";
+                }
+                else{
+                    text+="\t"+t.getOrientacionRelativa(adyacente)[0]+": "+adyacente.getInfo()+"\n";
+                }
+            }
+        }
+        return text;
+    }
     
     public ArrayList<Terreno> getTerrenos(){
         return terrenos;
@@ -135,6 +151,15 @@ public class Terrenos {
             }
         }
         return null;
+    }
+
+    public boolean exists(Terreno t0){
+        for (Terreno t: terrenos) {
+            if (t0.equals(t)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean exists(int i, int j){

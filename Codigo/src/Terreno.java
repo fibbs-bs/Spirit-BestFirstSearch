@@ -44,9 +44,15 @@ public abstract class Terreno{
         this.objetivo = true;
     }
 
+    public boolean getObjetivo(){
+        return objetivo;
+    }
+
     public Terrenos getTerrenos() {
         return terrenos;
     }
+
+    public abstract String getInfo();
 
     public Terrenos getObstaculos(){
         return obstaculos;

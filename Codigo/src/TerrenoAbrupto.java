@@ -21,5 +21,15 @@ public class TerrenoAbrupto extends Terreno{
         return 0.5/velocidad;
     }
 
+    @Override
+    public String getInfo() {
+        if (this.getObjetivo()){
+            return "Abrupto ("+this.getFila()+","+this.getColumna()+") OBJETIVO";
+        }
+        else{
+            return "Abrupto ("+this.getFila()+","+this.getColumna()+")";
+        }
+    }
+
 
 }

@@ -21,6 +21,14 @@ public class TerrenoLlano extends Terreno{
         return 0.5/velocidad;
     }
 
-    
+    @Override
+    public String getInfo() {
+        if (this.getObjetivo()){
+            return "Llano ("+this.getFila()+","+this.getColumna()+") OBJETIVO";
+        }
+        else{
+            return "Llano ("+this.getFila()+","+this.getColumna()+")";
+        }
+    }
 
 }
