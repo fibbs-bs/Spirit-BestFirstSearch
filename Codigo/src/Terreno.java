@@ -38,6 +38,9 @@ public abstract class Terreno{
     }
 
     public void setObjetivo(){
+        this.grafico.setFont(new Font("Arial", Font.BOLD, 30));
+        this.grafico.setForeground(Color.BLUE);
+        this.grafico.setText("X");
         this.objetivo = true;
     }
 

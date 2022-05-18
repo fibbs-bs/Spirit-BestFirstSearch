@@ -95,16 +95,18 @@ public class Terrenos {
                 }
 
             }
-            frame.setVisible(true);
-            /**
-             * Creación de objetivo
-             * Para que sea coherente, el código solo posiciona al objetivo en el cuartel inferior derecho
-             */
-            int filaObjetivo = (int)(n/2) + (int)(Math.random() * ((n - (int)(n/2)) + 1));
-            int columnaObjetivo = (int)(m/2) + (int)(Math.random() * ((m - (int)(m/2)) + 1));
-            this.find(filaObjetivo, columnaObjetivo).setObjetivo();
+            
+            
         }
-        
+        /**
+         * Creación de objetivo
+         * Para que sea coherente, el código solo posiciona al objetivo en el cuartel inferior derecho
+         */
+        int filaObjetivo = (int)(n/2) + (int)(Math.random() * ((n - (int)(n/2))));
+        int columnaObjetivo = (int)(m/2) + (int)(Math.random() * ((m - (int)(m/2))));
+        System.out.println(filaObjetivo+","+columnaObjetivo);
+        this.find(filaObjetivo, columnaObjetivo).setObjetivo();
+        frame.setVisible(true);
     }
 
     
@@ -160,3 +162,4 @@ public class Terrenos {
         return frame;
     }
 }
+
