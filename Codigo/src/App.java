@@ -67,7 +67,7 @@ public class App {
         open.add(nodoN);
         while (!open.isEmpty()){ //Step 2
             //Step 3
-            nodoN = open.pop(); 
+            open.pop(nodoN); 
             closed.add(nodoN);
             //
             //Step 4

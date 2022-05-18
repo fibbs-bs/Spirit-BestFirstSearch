@@ -129,17 +129,8 @@ public class Terrenos {
         return this.terrenos.isEmpty();
     }
 
-    public Terreno pop(Terreno actual){
-        Terreno terrenoMenor = actual;
-        for (Terreno terreno : this.terrenos) {
-            if(terrenoMenor == null){
-                terrenoMenor = terreno;
-            }else{
-               
-            }
-        }
+    public void pop(Terreno actual){
         this.terrenos.remove(actual);
-        return terrenoMenor;
     }
 
     public String toString(){
