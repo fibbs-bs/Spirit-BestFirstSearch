@@ -23,7 +23,7 @@ public class Terrenos {
         this.terrenos = new ArrayList<>();
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,600);
+        frame.setSize(m*100,n*100);
         frame.setLayout(new GridLayout(n,m,1,1));
         for (int i = 0; i < n; i++) {//filas
             for (int j = 0; j < m; j++) {//columnas
@@ -106,6 +106,13 @@ public class Terrenos {
         int columnaObjetivo = (int)(m/2) + (int)(Math.random() * ((m - (int)(m/2))));
         this.find(filaObjetivo, columnaObjetivo).setObjetivo();
         //
+        /**
+         * Creación de incio
+         * Para que sea coherente, el código solo posiciona al objetivo en el cuartel superior izquierdo
+         */
+        int filaInicio = (int)(0) + (int)(Math.random() * (((int)(n/2))));
+        int columnaInicio = (int)(0) + (int)(Math.random() * ((int)(m/2)));
+        this.find(filaInicio, columnaInicio).setInicio();
         frame.setVisible(true);
     }
 

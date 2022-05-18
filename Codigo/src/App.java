@@ -24,10 +24,11 @@ public class App {
         Terrenos superficie = new Terrenos(n,m);
         crearArchivo(superficie);
         tomarCaptura(superficie);
+
     }
 
 
-    public static void tomarCaptura(Terrenos terreno){                                        
+    public static void tomarCaptura(Terrenos terreno){
         JFrame panel = terreno.getFrame();
         /**
          * this gist outline the process to grab the screenshot of a particular
@@ -57,4 +58,9 @@ public class App {
         escritura.println(terreno.toString());
         file.close();
     }
+
+
+
+
+
 }

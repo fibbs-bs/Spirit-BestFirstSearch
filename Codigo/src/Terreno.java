@@ -9,6 +9,7 @@ public abstract class Terreno{
     private int fila;
     private int columna;
     private boolean objetivo;
+    private boolean inicio;
     private Terrenos terrenos;
     protected Terrenos obstaculos;
     protected JButton grafico;
@@ -17,8 +18,20 @@ public abstract class Terreno{
         this.fila = fila;
         this.columna = columna;
         this.objetivo = false;
+        this.inicio = false;
         terrenos = new Terrenos();
         obstaculos = new Terrenos();
+    }
+
+    public boolean getInicio(){
+        return inicio;
+    }
+
+    public void setInicio(){
+        this.inicio = true;
+        this.grafico.setFont(new Font("Arial", Font.BOLD, 30));
+        this.grafico.setForeground(Color.GREEN);
+        this.grafico.setText("S");
     }
 
     public JButton getGrafico(){
