@@ -30,7 +30,7 @@ public abstract class Terreno{
     public void setInicio(){
         this.inicio = true;
         this.grafico.setFont(new Font("Arial", Font.BOLD, 30));
-        this.grafico.setForeground(Color.GREEN);
+        this.grafico.setForeground(Color.BLACK);
         this.grafico.setText("S");
     }
 

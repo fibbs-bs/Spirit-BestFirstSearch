@@ -14,6 +14,7 @@ import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws IOException{
+        
         FileWriter file = new FileWriter("out.txt");
         PrintWriter escritura = new PrintWriter(file);
         Scanner scan = new Scanner(System.in);
@@ -24,6 +25,7 @@ public class App {
         Terrenos superficie = new Terrenos(n,m);
         crearArchivo(superficie);
         tomarCaptura(superficie);
+        
     }
 
 
