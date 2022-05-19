@@ -10,11 +10,13 @@ public class Terrenos {
     private ArrayList<Terreno> terrenos;
     private int n;
     private int m;
-    private int[] movimientoI = new int[]{0,1,0,-1};
-    private int[] movimientoJ = new int[]{1,0,-1,0};
+    private int[] movimientoI;
+    private int[] movimientoJ;
 
     public Terrenos() {
         this.terrenos = new ArrayList<>();
+        movimientoI = new int[]{0,1,0,-1};
+        movimientoJ = new int[]{1,0,-1,0};
     }
 
     public Terrenos(int n, int m){
