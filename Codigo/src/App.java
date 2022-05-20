@@ -13,8 +13,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class App {
-    public static void main(String[] args) throws IOException{
-        
+    public static void main(String[] args) throws Exception{
+
         FileWriter file = new FileWriter("out.txt");
         PrintWriter escritura = new PrintWriter(file);
         Scanner scan = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class App {
         Terrenos superficie = new Terrenos(n,m);
         crearArchivo(superficie);
         tomarCaptura(superficie);
-        
+        best_first_search(superficie);
     }
 
 
@@ -60,25 +60,9 @@ public class App {
         file.close();
     }
 
-    public static void best_first_search(Terrenos superficie){
-        Spirit spirit = new Spirit(superficie.getTerrenoInicio());
-        Terrenos open = spirit.getOpen();
-        Terrenos closed = spirit.getClosed();
-        Terreno nodoN = superficie.getTerrenoInicio();
-        //Step 1
-        open.add(nodoN);
-        while (!open.isEmpty()){ //Step 2
-            //Step 3
-            open.pop(nodoN); 
-            closed.add(nodoN);
-            //
-            //Step 4
-            for (Terreno hijo : nodoN.getTerrenos().getTerrenosArray()) {
-
-                open.add(hijo);
-            }
-            //
-        }
+    public static void best_first_search(Terrenos superficie) throws Exception{
+        Spirit robot = new Spirit(superficie);
+        robot.bestFistSearch();
     }
 
 

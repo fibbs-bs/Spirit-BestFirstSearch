@@ -123,5 +123,10 @@ public abstract class Terreno{
         this.grafico.setBorder(new MatteBorder(bordes[0],bordes[1],bordes[2],bordes[3],Color.BLACK));
     }
 
+    @Override
+    public String toString(){
+        return "("+fila+","+columna+")";
+    }
+
     public abstract double getTiempo();
 }
