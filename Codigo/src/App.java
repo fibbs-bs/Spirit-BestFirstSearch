@@ -26,6 +26,7 @@ public class App {
         crearArchivo(superficie);
         tomarCaptura(superficie);
         best_first_search(superficie);
+        //crear csv con datos recolectables
     }
 
 
