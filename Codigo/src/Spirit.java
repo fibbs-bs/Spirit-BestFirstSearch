@@ -7,11 +7,13 @@ public class Spirit {
     private List<Movimiento> closed;
     private PriorityQueue<Movimiento> open;
     private long tiempo;
-    private double distancia;
+    private double tiempoRecorrido;
     private String orientacion;
     private Terrenos superficie;
+    private int movimientos;
 
     public Spirit(Terrenos s){
+        movimientos = 0;
         closed = new ArrayList<>();
         open = new PriorityQueue<>();
         this.superficie = s;
@@ -20,22 +22,15 @@ public class Spirit {
     }
 
     public void bestFistSearch() throws Exception{
+        Movimiento n; //inicial
         long startTime = System.nanoTime();
         {
-            Movimiento n = new Movimiento(null, superficie.getTerrenoInicio(), this.orientacion);
+            n = new Movimiento(null, superficie.getTerrenoInicio(), this.orientacion);
             System.out.println("Inicial: "+n.getTerreno().toString()+" | dirección "+this.orientacion);
             open.add(n);
             while(!n.getTerreno().getObjetivo()){
                 if (open.isEmpty()){
                     throw new Exception("Sin solución");
-                }
-                if (n.getTerreno().getObjetivo()){
-                    /**
-                     * Se puede hacer backtracking desde el último movimiento agregado a closed o desde el mismo n
-                     */
-                    closed.add(n);
-                    n.getPath();
-                    return;
                 }
                 else{
                     closed.add(n);
@@ -48,17 +43,27 @@ public class Spirit {
                     }
                 }
                 n = open.remove();
+                this.movimientos++;
+                this.tiempoRecorrido+=n.getH();
                 System.out.println("Se movió a "+n.getTerreno().toString()+" | dirección "+n.getOrientacion()+" | h(n)="+n.getH());
             }
             System.out.println("Objetivo encontrado "+n.getTerreno().toString());
-            n.getPath();
         }
         long endTime = System.nanoTime();
-        this.tiempo = (endTime - startTime);  //divide by 1000000 to get milliseconds.
+        this.tiempo = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+        n.getPath();
     }
 
     public List<Movimiento> getClosed(){
         return closed;
+    }
+
+    public int getMovimientos(){
+        return this.movimientos;
+    }
+
+    public double tiempoRecorrido(){
+        return tiempoRecorrido;
     }
 
     public long getTiempo(){
