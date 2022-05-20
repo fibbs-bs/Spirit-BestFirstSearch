@@ -23,13 +23,12 @@ public class Spirit {
         long startTime = System.nanoTime();
         {
             Movimiento n = new Movimiento(null, superficie.getTerrenoInicio(), this.orientacion);
+            System.out.println("Inicial: "+n.getTerreno().toString()+" | dirección "+this.orientacion);
             open.add(n);
             while(!n.getTerreno().getObjetivo()){
                 if (open.isEmpty()){
                     throw new Exception("Sin solución");
                 }
-                closed.add(n);
-                System.out.println(n.getTerreno().toString()+" | "+n.getOrientacion());
                 if (n.getTerreno().getObjetivo()){
                     /**
                      * Se puede hacer backtracking desde el último movimiento agregado a closed o desde el mismo n
@@ -39,6 +38,7 @@ public class Spirit {
                     return;
                 }
                 else{
+                    closed.add(n);
                     Terreno nodoActual = n.getTerreno();
                     for (Terreno hijo : nodoActual.getTerrenos().getTerrenosArray()) {
                         if (!nodoActual.getObstaculos().exists(hijo)){
@@ -48,7 +48,10 @@ public class Spirit {
                     }
                 }
                 n = open.remove();
+                System.out.println("Se movió a "+n.getTerreno().toString()+" | dirección "+n.getOrientacion()+" | h(n)="+n.getH());
             }
+            System.out.println("Objetivo encontrado "+n.getTerreno().toString());
+            n.getPath();
         }
         long endTime = System.nanoTime();
         this.tiempo = (endTime - startTime);  //divide by 1000000 to get milliseconds.

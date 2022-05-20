@@ -1,5 +1,6 @@
 package src;
 
+import java.awt.Color;
 import java.util.*;
 
 /**
@@ -98,6 +99,7 @@ public class Movimiento implements Comparable<Movimiento>{
 
     public void getPath(){
         System.out.println(terreno.toString());
+        terreno.getGrafico().setBackground(Color.GREEN);
         if (this.movimientoAnterior!=null){
             this.movimientoAnterior.getPath();
         }
