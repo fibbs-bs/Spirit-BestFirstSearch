@@ -11,10 +11,6 @@ public class TerrenoLlano extends Terreno{
 
     public TerrenoLlano(int fila, int columna) {
         super(fila, columna);
-        this.grafico = new JButton(""){{
-            setBackground(new Color(249,202,162));
-            setBorder(new MatteBorder(0,0,0,0,Color.WHITE));
-        }};
     }
 
     public double getTiempo() {

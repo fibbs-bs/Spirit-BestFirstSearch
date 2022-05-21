@@ -11,10 +11,7 @@ public class TerrenoAbrupto extends Terreno{
 
     public TerrenoAbrupto(int fila, int columna) {
         super(fila, columna);
-        this.grafico = new JButton(""){{
-            setBackground(new Color(185,57,52));
-            setBorder(new MatteBorder(0,0,0,0,Color.WHITE));
-        }};
+        
     }
     
     public double getTiempo() {

@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 
 public class Terrenos {
 
-    private JFrame frame;
     private ArrayList<Terreno> terrenos;
     private int n;
     private int m;
@@ -21,10 +20,6 @@ public class Terrenos {
         this.n = n;
         this.m = m;
         this.terrenos = new ArrayList<>();
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(m*100,n*100);
-        frame.setLayout(new GridLayout(n,m,1,1));
         for (int i = 0; i < n; i++) {//filas
             for (int j = 0; j < m; j++) {//columnas
                 Terreno terrenoIJ;
@@ -46,7 +41,6 @@ public class Terrenos {
                     //Si el terreno de coordenadas i,j ya existe, solo se obtiene desde la superficie.
                     terrenoIJ = this.find(i, j);
                 }
-                frame.add(terrenoIJ.getGrafico());
                 /**
                  * Al terreno recién creado (u obtenido desde la superficie) se le asignan máximo 4 hijos.
                  * Estos hijos son los nodos los cuales serán las opciones a abrir.
@@ -207,8 +201,5 @@ public class Terrenos {
         return false;
     }
 
-    public JFrame getFrame(){
-        return frame;
-    }
 }
 

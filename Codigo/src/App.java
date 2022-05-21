@@ -20,15 +20,14 @@ public class App {
 
 
     private static void generadorNxN() {
-        int n = 100;
+        int n = 10;
         int cont = 0;
         for (int i = 2; i < n; i++) {
             for (int j = 0; j < 10; j++) {
                 try {
                     Terrenos superficie = new Terrenos(i,i);
                     actualizarCSV(superficie,best_first_search(superficie));
-                    System.out.println((int)(((cont)/(double)((n-2)*10))*100)+"%");
-                    //tomarCaptura(superficie);        
+                    System.out.println((int)(((cont)/(double)((n-2)*10))*100)+"%");    
                     cont++;
                 } catch (Exception e) {
                     continue;
@@ -66,27 +65,6 @@ public class App {
 
 
 
-    public static void tomarCaptura(Terrenos terreno){
-        JFrame panel = terreno.getFrame();
-        /**
-         * this gist outline the process to grab the screenshot of a particular
-         * JFrame in Swing from which the method is invoked
-         * 
-         * "this" is the particualr frame here
-         * */
-        BufferedImage screenshotImage = new BufferedImage(
-                panel.getBounds().width, panel.getBounds().height,
-                BufferedImage.TYPE_INT_RGB);
-                panel.paint(screenshotImage.getGraphics()
-        );
-        try {
-            DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HHmm");
-            String nowFormat = dtf2.format(LocalDateTime.now());
-            ImageIO.write(screenshotImage, "png", new File("Codigo/salidas/Imagenes/"+terreno.getN()+"x"+terreno.getM()+"_"+nowFormat+".png" ));
-        } catch (IOException ex) {
-            System.err.println("ImageIssues");
-        }
-    }
 
     public static void crearArchivo(Terrenos terreno) throws IOException{
         DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HHmm");

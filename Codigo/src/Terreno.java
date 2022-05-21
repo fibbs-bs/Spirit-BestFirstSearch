@@ -12,7 +12,7 @@ public abstract class Terreno{
     private boolean inicio;
     private Terrenos terrenos;
     protected Terrenos obstaculos;
-    protected JButton grafico;
+    
 
     public Terreno(int fila, int columna){
         this.fila = fila;
@@ -29,14 +29,8 @@ public abstract class Terreno{
 
     public void setInicio(){
         this.inicio = true;
-        this.grafico.setFont(new Font("Arial", Font.BOLD, 30));
-        this.grafico.setForeground(Color.BLACK);
-        this.grafico.setText("S");
     }
 
-    public JButton getGrafico(){
-        return grafico;
-    }
 
     public int getFila() {
         return fila;
@@ -51,9 +45,6 @@ public abstract class Terreno{
     }
 
     public void setObjetivo(){
-        this.grafico.setFont(new Font("Arial", Font.BOLD, 30));
-        this.grafico.setForeground(Color.BLUE);
-        this.grafico.setText("X");
         this.objetivo = true;
     }
 
@@ -120,7 +111,6 @@ public abstract class Terreno{
                 }
             }
         }
-        this.grafico.setBorder(new MatteBorder(bordes[0],bordes[1],bordes[2],bordes[3],Color.BLACK));
     }
 
     @Override

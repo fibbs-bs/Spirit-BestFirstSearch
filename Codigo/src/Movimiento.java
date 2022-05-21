@@ -111,11 +111,6 @@ public class Movimiento implements Comparable<Movimiento>{
 
     public void getPath(){
         System.out.println(terreno.toString()+" | "+this.orientacion);
-        if (!this.terreno.getObjetivo() && !this.terreno.getInicio()){
-            this.terreno.getGrafico().setForeground(Color.BLUE);
-            this.terreno.getGrafico().setText("\u2B1B");
-        }
-        
         if (this.movimientoAnterior!=null){
             this.movimientoAnterior.getPath();
         }
