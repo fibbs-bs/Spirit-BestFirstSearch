@@ -10,13 +10,12 @@ import java.time.format.DateTimeFormatter;
 
 public class App {
     public static void main(String[] args) throws Exception{
-        generadorNxN();
+        generadorNxN(100);
     }
 
 
 
-    private static void generadorNxN() {
-        int n = 10;
+    private static void generadorNxN(int n) {
         int cont = 0;
         for (int i = 2; i < n; i++) {
             for (int j = 0; j < 10; j++) {
