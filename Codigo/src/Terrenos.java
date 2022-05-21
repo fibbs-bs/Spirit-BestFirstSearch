@@ -17,6 +17,10 @@ public class Terrenos {
         this.terrenos = new ArrayList<>();
     }
 
+    public Terrenos(int n){
+        this(n,n);
+    }
+
     public Terrenos(int n, int m){
         this.n = n;
         this.m = m;
@@ -113,7 +117,7 @@ public class Terrenos {
         int filaInicio = (int)(0) + (int)(Math.random() * (((int)(n/2))));
         int columnaInicio = (int)(0) + (int)(Math.random() * ((int)(m/2)));
         this.find(filaInicio, columnaInicio).setInicio();
-        //frame.setVisible(true); Descomentar esto para obtener graficos
+        frame.setVisible(true); 
     }
 
     public Terreno getTerrenoInicio(){

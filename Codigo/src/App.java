@@ -14,31 +14,18 @@ import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws Exception{
-        generadorNxN();
+        //generadorNxN();
+        normal();
     }
 
-
-
-    private static void generadorNxN() {
-        int n = 100;
-        int cont = 0;
-        for (int i = 2; i < n; i++) {
-            for (int j = 0; j < 10; j++) {
-                try {
-                    Terrenos superficie = new Terrenos(i,i);
-                    actualizarCSV(superficie,best_first_search(superficie));
-                    System.out.println((int)(((cont)/(double)((n-2)*10))*100)+"%");
-                    //tomarCaptura(superficie);        
-                    cont++;
-                } catch (Exception e) {
-                    continue;
-                }
-            }
-        }
-        
+    private static void normal() throws Exception{
+        System.out.println("Ingrese valor para N: ");
+        int n = Integer.parseInt((new Scanner(System.in)).nextLine());
+        Terrenos superficie = new Terrenos(n);
+        //actualizarCSV(superficie,best_first_search(superficie));
+        best_first_search(superficie);
+        tomarCaptura(superficie);
     }
-
-
 
     private static void actualizarCSV(Terrenos superficie, Spirit s) throws IOException {
         Scanner scan;

@@ -61,7 +61,7 @@ public class Spirit {
         }
         long endTime = System.nanoTime();
         this.tiempo = (endTime - startTime)/1000000.0;  //dividir por 1000000 para obtener milisegundos.
-        //n.getPath();
+        n.getPath();
     }
 
     public List<Movimiento> getClosed(){
