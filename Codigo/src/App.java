@@ -14,20 +14,56 @@ import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws Exception{
-
-        FileWriter file = new FileWriter("out.txt");
-        PrintWriter escritura = new PrintWriter(file);
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Ingrese dimensión n: ");
-        int n = Integer.parseInt(scan.nextLine());
-        System.out.print("Ingrese dimensión m: ");
-        int m = Integer.parseInt(scan.nextLine());
-        Terrenos superficie = new Terrenos(n,m);
-        crearArchivo(superficie);
-        tomarCaptura(superficie);
-        best_first_search(superficie);
-        //crear csv con datos recolectables
+        generadorNxN();
     }
+
+
+
+    private static void generadorNxN() {
+        int n = 100;
+        int cont = 0;
+        for (int i = 2; i < n; i++) {
+            for (int j = 0; j < 10; j++) {
+                try {
+                    Terrenos superficie = new Terrenos(i,i);
+                    actualizarCSV(superficie,best_first_search(superficie));
+                    System.out.println((int)(((cont)/(double)((n-2)*10))*100)+"%");
+                    //tomarCaptura(superficie);        
+                    cont++;
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+        }
+        
+    }
+
+
+
+    private static void actualizarCSV(Terrenos superficie, Spirit s) throws IOException {
+        Scanner scan;
+        String salida = "N,M,Area,Ejecucion(ms),Busqueda(h(t)),Movimientos,Giros\n";
+        try {
+            int i = 0;
+            scan = new Scanner(new File("Codigo/salidas/Datos/reporte.csv"));
+            while(scan.hasNextLine()){
+                String linea = scan.nextLine();
+                String [] partes = linea.split(",");
+                if (i>0 && !partes[0].equals("N")){
+                    salida += linea+"\n";
+                }
+                i++;
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        salida += superficie.getN()+","+superficie.getM()+","+(superficie.getN()*superficie.getM())+","+s.getTiempo()+","+s.getTiempoRecorrido()+","+s.getMovimientos()+","+s.getGiros();
+        FileWriter file = new FileWriter("Codigo/salidas/Datos/reporte.csv");
+        PrintWriter escritura = new PrintWriter(file);
+        escritura.println(salida);
+        file.close();
+    }
+
 
 
     public static void tomarCaptura(Terrenos terreno){
@@ -61,9 +97,10 @@ public class App {
         file.close();
     }
 
-    public static void best_first_search(Terrenos superficie) throws Exception{
+    public static Spirit best_first_search(Terrenos superficie) throws Exception{
         Spirit robot = new Spirit(superficie);
         robot.bestFistSearch();
+        return robot;
     }
 
 
