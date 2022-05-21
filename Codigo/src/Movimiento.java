@@ -1,6 +1,6 @@
 package src;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.*;
 
 /**
@@ -14,6 +14,7 @@ public class Movimiento implements Comparable<Movimiento>{
     private long timestamp;
     private String orientacion;
     private double h;//heuristica
+    private int giros;
 
     public Movimiento(Movimiento anterior, Terreno actual, String orientacionSpirit){
         this.timestamp = System.nanoTime();
@@ -34,11 +35,22 @@ public class Movimiento implements Comparable<Movimiento>{
                 int [] angulo = new int[]{0,90,180,270};
                 int posactual = angulo[orientacion.indexOf(orientacionSpirit)];
                 int posmover = angulo[orientacion.indexOf(this.orientacion)];
-                int giros = Math.abs(posmover-posactual)/90;
+                this.giros = Math.abs(posmover-posactual)/90;
     
                 this.h = (terrenoAnterior.getTiempo()+terreno.getTiempo())+(4*giros);
             }
         }
+    }
+    
+    public boolean equals(Movimiento m){
+        if (this.orientacion.equals(m.getOrientacion()) && this.terreno.equals(m.getTerreno())){
+            return true;
+        }
+        return false;
+    }
+
+    public int getGiros(){
+        return this.giros;
     }
 
     @Override
@@ -98,8 +110,12 @@ public class Movimiento implements Comparable<Movimiento>{
     }
 
     public void getPath(){
-        System.out.println(terreno.toString());
-        terreno.getGrafico().setBackground(Color.GREEN);
+        System.out.println(terreno.toString()+" | "+this.orientacion);
+        if (!this.terreno.getObjetivo() && !this.terreno.getInicio()){
+            this.terreno.getGrafico().setForeground(Color.BLUE);
+            this.terreno.getGrafico().setText("\u2B1B");
+        }
+        
         if (this.movimientoAnterior!=null){
             this.movimientoAnterior.getPath();
         }

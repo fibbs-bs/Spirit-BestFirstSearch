@@ -6,16 +6,18 @@ public class Spirit {
 
     private List<Movimiento> closed;
     private PriorityQueue<Movimiento> open;
-    private long tiempo;
+    private double tiempo;
     private double tiempoRecorrido;
     private String orientacion;
     private Terrenos superficie;
     private int movimientos;
+    private int giros;
 
     public Spirit(Terrenos s){
-        movimientos = 0;
-        closed = new ArrayList<>();
-        open = new PriorityQueue<>();
+        this.giros = 0;
+        this.movimientos = 0;
+        this.closed = new ArrayList<>();
+        this.open = new PriorityQueue<>();
         this.superficie = s;
         Random rand = new Random();
         this.orientacion = (new String[]{"N","S","E","O"})[rand.nextInt(4)];
@@ -26,7 +28,7 @@ public class Spirit {
         long startTime = System.nanoTime();
         {
             n = new Movimiento(null, superficie.getTerrenoInicio(), this.orientacion);
-            System.out.println("Inicial: "+n.getTerreno().toString()+" | dirección "+this.orientacion);
+            //System.out.println("Inicial: "+n.getTerreno().toString()+" | dirección "+this.orientacion);
             open.add(n);
             while(!n.getTerreno().getObjetivo()){
                 if (open.isEmpty()){
@@ -36,37 +38,49 @@ public class Spirit {
                     closed.add(n);
                     Terreno nodoActual = n.getTerreno();
                     for (Terreno hijo : nodoActual.getTerrenos().getTerrenosArray()) {
+                        //El nodo N que se escoja no puede haber estado antes en la lista closed
+                        Movimiento nuevo = new Movimiento(n, hijo, n.getOrientacion());
                         if (!nodoActual.getObstaculos().exists(hijo)){
-                            Movimiento nuevo = new Movimiento(n, hijo, n.getOrientacion());
-                            open.add(nuevo);
+                            boolean exists = false;
+                            for (Movimiento movimiento : closed) {
+                                exists = movimiento.equals(nuevo);
+                                if (exists) break;
+                            }
+                            if (!exists) open.add(nuevo);
                         }
+
                     }
                 }
                 n = open.remove();
                 this.movimientos++;
                 this.tiempoRecorrido+=n.getH();
-                System.out.println("Se movió a "+n.getTerreno().toString()+" | dirección "+n.getOrientacion()+" | h(n)="+n.getH());
+                this.giros += n.getGiros();
+                //System.out.println("Se movió a "+n.getTerreno().toString()+" | dirección "+n.getOrientacion()+" | h(n)="+n.getH());
             }
-            System.out.println("Objetivo encontrado "+n.getTerreno().toString());
+            //System.out.println("Objetivo encontrado "+n.getTerreno().toString());
         }
         long endTime = System.nanoTime();
-        this.tiempo = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-        n.getPath();
+        this.tiempo = (endTime - startTime)/1000000.0;  //dividir por 1000000 para obtener milisegundos.
+        //n.getPath();
     }
 
     public List<Movimiento> getClosed(){
         return closed;
     }
 
+    public int getGiros(){
+        return this.giros;
+    }
+
     public int getMovimientos(){
         return this.movimientos;
     }
 
-    public double tiempoRecorrido(){
+    public double getTiempoRecorrido(){
         return tiempoRecorrido;
     }
 
-    public long getTiempo(){
+    public double getTiempo(){
         return this.tiempo;
     }
 }

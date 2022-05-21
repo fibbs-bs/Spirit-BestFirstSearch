@@ -113,7 +113,7 @@ public class Terrenos {
         int filaInicio = (int)(0) + (int)(Math.random() * (((int)(n/2))));
         int columnaInicio = (int)(0) + (int)(Math.random() * ((int)(m/2)));
         this.find(filaInicio, columnaInicio).setInicio();
-        frame.setVisible(true);
+        //frame.setVisible(true);
     }
 
     public Terreno getTerrenoInicio(){
