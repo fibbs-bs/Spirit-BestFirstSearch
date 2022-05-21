@@ -1,8 +1,7 @@
 package src;
 
 import java.util.ArrayList;
-import java.awt.*;
-import javax.swing.JFrame;
+
 
 public class Terrenos {
 

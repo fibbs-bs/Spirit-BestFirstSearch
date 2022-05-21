@@ -1,9 +1,5 @@
 package src;
 
-import javax.swing.JButton;
-import java.awt.*;
-import javax.swing.border.MatteBorder;
-
 public abstract class Terreno{
 
     private int fila;

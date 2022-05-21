@@ -1,9 +1,5 @@
 package src;
 
-import javax.swing.JButton;
-import javax.swing.border.MatteBorder;
-
-import java.awt.*;
 
 public class TerrenoLlano extends Terreno{
 

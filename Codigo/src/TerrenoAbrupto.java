@@ -1,10 +1,5 @@
 package src;
 
-import javax.swing.JButton;
-import javax.swing.border.MatteBorder;
-
-import java.awt.*;
-
 public class TerrenoAbrupto extends Terreno{
 
     private double velocidad = 0.5;
