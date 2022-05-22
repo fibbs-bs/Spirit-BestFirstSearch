@@ -24,6 +24,7 @@ public class Spirit {
     }
 
     public void bestFistSearch() throws Exception{
+        Scanner scan = new Scanner(System.in);
         Movimiento n; //inicial
         long startTime = System.nanoTime();
         {
@@ -36,6 +37,9 @@ public class Spirit {
                 }
                 else{
                     closed.add(n);
+                    {
+                        n.closedIn();
+                    }
                     Terreno nodoActual = n.getTerreno();
                     for (Terreno hijo : nodoActual.getTerrenos().getTerrenosArray()) {
                         //El nodo N que se escoja no puede haber estado antes en la lista closed
@@ -46,11 +50,14 @@ public class Spirit {
                                 exists = movimiento.equals(nuevo);
                                 if (exists) break;
                             }
-                            if (!exists) open.add(nuevo);
+                            if (!exists) {
+                                open.add(nuevo);
+                                nuevo.openIn();
+                            }
                         }
-
                     }
                 }
+                scan.nextLine();
                 n = open.remove();
                 this.movimientos++;
                 this.tiempoRecorrido+=n.getH();

@@ -24,7 +24,7 @@ public class App {
         Terrenos superficie = new Terrenos(n);
         //actualizarCSV(superficie,best_first_search(superficie));
         best_first_search(superficie);
-        tomarCaptura(superficie);
+        //tomarCaptura(superficie);
     }
 
     private static void actualizarCSV(Terrenos superficie, Spirit s) throws IOException {

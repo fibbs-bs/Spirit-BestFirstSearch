@@ -3,6 +3,8 @@ package src;
 import java.awt.*;
 import java.util.*;
 
+import javax.swing.JButton;
+
 /**
  * Esta clase se crea porque los terrenos no bastan para representar el movimiento de spirit ya que posee una orientación.
  * Además, puede moverse al mismo terreno pero desde distintas orientaciones, lo que Terreno por si solo no puede representar.
@@ -43,7 +45,7 @@ public class Movimiento implements Comparable<Movimiento>{
     }
     
     public boolean equals(Movimiento m){
-        if (this.orientacion.equals(m.getOrientacion()) && this.terreno.equals(m.getTerreno())){
+        if (/*this.orientacion.equals(m.getOrientacion()) &&*/ this.terreno.equals(m.getTerreno())){
             return true;
         }
         return false;
@@ -120,4 +122,19 @@ public class Movimiento implements Comparable<Movimiento>{
             this.movimientoAnterior.getPath();
         }
     }    
+
+    public void closedIn(){
+        if (!this.terreno.getObjetivo() && !this.terreno.getInicio()){
+            this.terreno.getGrafico().setForeground(Color.BLACK);
+            this.terreno.getGrafico().setText("\u2B1B");
+        }
+    }
+
+    public void openIn(){
+        if (!this.terreno.getObjetivo() && !this.terreno.getInicio()){
+            this.terreno.getGrafico().setForeground(Color.WHITE);
+            this.terreno.getGrafico().setText("\u2B1B");
+        }
+    }
+
 }
